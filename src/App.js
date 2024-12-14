@@ -5,10 +5,7 @@ import AccountOperations from "./features/accounts/AccountOperations";
 import BalanceDisplay from "./features/accounts/BalanceDisplay";
 
 function App() {
-  const {
-    account: { balance },
-    customer: { fullName },
-  } = useSelector((state) => state);
+  const fullName = useSelector((state) => state.customer.fullName);
 
   return (
     <div>
@@ -17,9 +14,9 @@ function App() {
         <CreateCustomer />
       ) : (
         <>
-          <Customer customerName={fullName} />
+          <Customer />
           <AccountOperations />
-          <BalanceDisplay balance={balance} />
+          <BalanceDisplay />
         </>
       )}
     </div>
